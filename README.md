@@ -79,8 +79,7 @@ The API supports the following core functionalities:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/file-management-system.git
-cd file-management-system
+git clone https://github.com/ptranquil/file-management-system
 ```
 
 ### 2. Install Dependencies for Each Service
@@ -93,6 +92,9 @@ cd hierarchy-service
 npm install
 
 cd version-service
+npm install
+
+cd Frontend
 npm install
 ```
 
@@ -129,6 +131,14 @@ Make sure to set up the required environment variables for each service:
 | `INTERNAL_SECRET` | abcdveryimpotantsecretvalue |
 | `VERSION_SERVICE_BASE_URL` | http://localhost:3001/heirarchyservice/api/v1/documents (For Interservice communication) |
 | `SERVICE_PREFIX` | versionservice/ |
+
+**Frontend:** 
+| Variable | Description |
+|----------|-------------|
+| `VITE_USER_SERVICE_URL` | http://localhost:3000/userservice/api/v1 |
+| `VITE_HEIRARCHY_SERVICE_URL` | http://localhost:3001/heirarchyservice/api/v1 |
+| `VITE_VERSION_SERVICE_URL` | http://localhost:3002/versionservice/api/v1 |
+
 ### 4. Once all dependencies are installed, start the services:
 ```bash
 cd user-service
@@ -139,6 +149,9 @@ npm start
 
 cd version-service
 npm start
+
+cd frontend
+npm run dev
 ```
 
 > 📌 **Note:**  
