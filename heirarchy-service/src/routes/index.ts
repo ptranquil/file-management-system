@@ -1,6 +1,6 @@
 import express from "express";
 
-import { checkFoldersByUserId, createFolder, deleteFolderById, getAllFolderBelongsToUser, healthCheck, renameFolder, viewstore, viewstoreById, viewstorefull } from "../controller/folder.controller";
+import { checkFoldersByUserId, createFolder, deleteFolderById, getAllFolderBelongsToUser, healthCheck, renameFolder, viewstore, viewstoreById } from "../controller/folder.controller";
 import { createFolderSchema, renameFolderSchema } from "../schemas/folder.schema";
 import { ValidateZod, verifyInternalRequest, verifyUser } from "filemanagement-utils";
 

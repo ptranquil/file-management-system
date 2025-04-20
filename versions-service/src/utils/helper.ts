@@ -27,6 +27,6 @@ export const callHeirarchyService = async (method: string, url: string, body: {}
         if (err.status === 403) {
             throw(new appError("You are not authorized to access these folders", 403));
         }
-        throw(new appError("Failed to validate folders from hierarchy service", 400));
+        throw(new appError("hierarchy service API Down", 500));
     }
 }

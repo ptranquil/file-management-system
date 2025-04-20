@@ -245,7 +245,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"C\",\r\n    \"parentFolder\": \"6804602b65b71695c9edc8de\"\r\n}",
+							"raw": "{\r\n    \"name\": \"csk\",\r\n    \"parentFolder\": \"null\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -503,7 +503,7 @@
 								},
 								{
 									"key": "title",
-									"value": "test33",
+									"value": "teams",
 									"type": "text"
 								},
 								{
@@ -531,7 +531,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Document + Versions",
+					"name": "Get Document By ID",
 					"event": [
 						{
 							"listen": "test",
@@ -544,46 +544,17 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": "/C:/Users/Prashant Dwivedi/Downloads/Cover Letter - JPMC.pdf",
-									"disabled": true
-								},
-								{
-									"key": "title",
-									"value": "test",
-									"type": "text"
-								},
-								{
-									"key": "folderId",
-									"value": "68033f145986fc61c98083b2",
-									"type": "text"
-								},
-								{
-									"key": "content",
-									"value": "Some content",
-									"type": "text"
-								}
-							]
-						},
 						"url": {
-							"raw": "{{versionservice-endpoint}}/documents/6804c908ac311644f26b4ee7",
+							"raw": "{{versionservice-endpoint}}/documents/6804c97c3a62f0b0e548ca63",
 							"host": [
 								"{{versionservice-endpoint}}"
 							],
 							"path": [
 								"documents",
-								"6804c908ac311644f26b4ee7"
+								"6804c97c3a62f0b0e548ca63"
 							]
 						}
 					},
@@ -612,18 +583,18 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/Prashant Dwivedi/Downloads/fahed_sayyed_4_exp.pdf"
+									"src": "/C:/Users/Prashant Dwivedi/Downloads/download.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{versionservice-endpoint}}/documents/6804be4b33c8c6ee666baa6f/version",
+							"raw": "{{versionservice-endpoint}}/documents/680460ebfed197a5a456dccb/version",
 							"host": [
 								"{{versionservice-endpoint}}"
 							],
 							"path": [
 								"documents",
-								"6804be4b33c8c6ee666baa6f",
+								"680460ebfed197a5a456dccb",
 								"version"
 							]
 						}
@@ -644,22 +615,9 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "file",
-									"type": "file",
-									"src": "/C:/Users/Prashant Dwivedi/Downloads/Cover Letter - JPMC.pdf"
-								}
-							]
-						},
 						"url": {
 							"raw": "{{versionservice-endpoint}}/documents/680460ebfed197a5a456dccb/version",
 							"host": [

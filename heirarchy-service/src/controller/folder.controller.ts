@@ -11,40 +11,6 @@ export const healthCheck = catchAsync(async (req: Request, res: Response) => {
     return apiSuccess(200, "Folder Service is Healthy!!!!!", res);
 });
 
-export const viewstorefull = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const userId = res.locals.user.userId;
-
-    // Step 1: Fetch all folders for this user at once
-    const allFolders = await folderModel.find({ userId }).lean();
-
-    // Step 2: Create a map of folderId = folderObject
-    const folderMap: any = {};
-    allFolders.forEach((folder: any) => {
-        folder.children = [];
-        folderMap[folder._id.toString()] = folder;
-    });
-
-    // Step 3: Build the tree
-    const rootFolders: any = [];
-    allFolders.forEach((folder) => {
-        if (folder.parentFolder) {
-            const parent = folderMap[folder.parentFolder.toString()];
-            if (parent) {
-                parent.children.push(folder);
-            }
-        } else {
-            rootFolders.push(folder);
-        }
-    });
-
-    return apiSuccess(
-        200,
-        "Folders fetched successfully",
-        res,
-        rootFolders
-    );
-});
-
 export const viewstore = catchAsync(async (_: Request, res: Response) => {
     const userId = res.locals.user.userId;
     const allFolders = await folderModel

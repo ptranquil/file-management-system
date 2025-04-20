@@ -52,7 +52,7 @@ export const callVersionService = async (method: string, url: string, body: {}, 
         if (err.status === 403) {
             throw(new appError("You are not authorized to access these folders", 403));
         }
-        throw(new appError("Failed to validate folders from Version service", 400));
+        throw(new appError("Version service API Down", 500));
     }
 }
 
