@@ -1,0 +1,897 @@
+{
+	"info": {
+		"_postman_id": "eb9b8df2-6f1f-43d7-9293-84494937d437",
+		"name": "File Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15827923"
+	},
+	"item": [
+		{
+			"name": "User Service",
+			"item": [
+				{
+					"name": "Registeration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Virat Kohli\",\r\n    \"email\": \"viratk@indian.com\",\r\n    \"password\": \"1111111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{userservice-endpoint}}/signup",
+							"host": [
+								"{{userservice-endpoint}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// const res = pm.response.json();\r",
+									"// if(res?.data?.token){\r",
+									"//     pm.environment.set(\"accessToken\", res.data.token)\r",
+									"// }\r",
+									"\r",
+									"let response = pm.response.json();\r",
+									"\r",
+									"// Check if token exists\r",
+									"if (response.status && response.data && response.data.token) {\r",
+									"    // Set environment variable\r",
+									"    pm.environment.set(\"accessToken\", response.data.token);\r",
+									"    console.log(\"Access token saved to environment.\");\r",
+									"} else {\r",
+									"    console.warn(\"Token not found in response.\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"msdhoni\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{userservice-endpoint}}/login",
+							"host": [
+								"{{userservice-endpoint}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"MS Dhoni\",\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"msdhoni\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{userservice-endpoint}}/",
+							"host": [
+								"{{userservice-endpoint}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{userservice-endpoint}}/health-check",
+							"host": [
+								"{{userservice-endpoint}}"
+							],
+							"path": [
+								"health-check"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{accessToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Heirarchy Service",
+			"item": [
+				{
+					"name": "viewstore",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/viewstore",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"viewstore"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewstore by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/viewstore/6804603d65b71695c9edc8ea",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"viewstore",
+								"6804603d65b71695c9edc8ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"C\",\r\n    \"parentFolder\": \"6804602b65b71695c9edc8de\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/folder",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"folder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/folder/6804856a9496b87e70669ab1",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"folder",
+								"6804856a9496b87e70669ab1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Folder",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newName\": \"csk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/folder/6804602b65b71695c9edc8de",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"folder",
+								"6804602b65b71695c9edc8de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INTERNAL -Check folder existence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-internal-token",
+								"value": "abcdveryinpsecretvalue",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"68045a6e0ab4570cc2beffab\",\r\n    \"folderIds\": [\"68045f38ba9567f08a503bc8\"]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/checkfolder",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"checkfolder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INTERNAL -getfolderids",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-internal-token",
+								"value": "abcdveryinpsecretvalue",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"68020af11e1ad9e946276a6e\",\r\n    \"folderIds\": [\"68033f145986fc61c98083b2\"]\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/getfolderids/68020af11e1ad9e946276a6e",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"getfolderids",
+								"68020af11e1ad9e946276a6e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{heirarchyservice-endpoint}}/health-check",
+							"host": [
+								"{{heirarchyservice-endpoint}}"
+							],
+							"path": [
+								"health-check"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{accessToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Version Service",
+			"item": [
+				{
+					"name": "Create Document",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Prashant Dwivedi/Downloads/download.jpg"
+								},
+								{
+									"key": "title",
+									"value": "test33",
+									"type": "text"
+								},
+								{
+									"key": "folderId",
+									"value": "6804603765b71695c9edc8e6",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Some content",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document + Versions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Prashant Dwivedi/Downloads/Cover Letter - JPMC.pdf",
+									"disabled": true
+								},
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "folderId",
+									"value": "68033f145986fc61c98083b2",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Some content",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/6804c908ac311644f26b4ee7",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"6804c908ac311644f26b4ee7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Prashant Dwivedi/Downloads/fahed_sayyed_4_exp.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/6804be4b33c8c6ee666baa6f/version",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"6804be4b33c8c6ee666baa6f",
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document Versions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Prashant Dwivedi/Downloads/Cover Letter - JPMC.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/680460ebfed197a5a456dccb/version",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"680460ebfed197a5a456dccb",
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"myTitle\",\r\n    \"content\": \"mycontent\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/680460ebfed197a5a456dccb",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"680460ebfed197a5a456dccb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete document",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/6804be4b33c8c6ee666baa6f",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"6804be4b33c8c6ee666baa6f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter document",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/filter?search=test",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "total documents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/total-documents",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"total-documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "INTERNAL - getDocumentByFolderId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"folderIds\" : [\"6804602b65b71695c9edc8de\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{versionservice-endpoint}}/documents/getdocumentbyfolderids",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"documents",
+								"getdocumentbyfolderids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{versionservice-endpoint}}/health-check",
+							"host": [
+								"{{versionservice-endpoint}}"
+							],
+							"path": [
+								"health-check"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{accessToken}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
