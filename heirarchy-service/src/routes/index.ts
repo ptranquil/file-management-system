@@ -15,6 +15,6 @@ appRouter.delete("/folder/:id", verifyUser, deleteFolderById);
 
 /** Internal micro services call */
 appRouter.post("/checkfolder", verifyInternalRequest, checkFoldersByUserId);
-appRouter.post("/getfolderids/:userId", verifyInternalRequest, getAllFolderBelongsToUser);
+appRouter.get("/getfolderids/:userId", verifyInternalRequest, getAllFolderBelongsToUser);
 
 export default appRouter;

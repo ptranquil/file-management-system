@@ -68,7 +68,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"msdhoni\"\r\n}",
+							"raw": "{\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"Msdhoni@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -94,7 +94,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"MS Dhoni\",\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"msdhoni\"\r\n}",
+							"raw": "{\r\n    \"name\": \"MS Dhoni\",\r\n    \"email\": \"msdhoni@indian.com\",\r\n    \"password\": \"Msdhoni@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -392,7 +392,7 @@
 						}
 					],
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "x-internal-token",
@@ -400,23 +400,14 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"userId\": \"68020af11e1ad9e946276a6e\",\r\n    \"folderIds\": [\"68033f145986fc61c98083b2\"]\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{heirarchyservice-endpoint}}/getfolderids/68020af11e1ad9e946276a6e",
+							"raw": "{{heirarchyservice-endpoint}}/getfolderids/68045a020ab4570cc2beff9d",
 							"host": [
 								"{{heirarchyservice-endpoint}}"
 							],
 							"path": [
 								"getfolderids",
-								"68020af11e1ad9e946276a6e"
+								"68045a020ab4570cc2beff9d"
 							]
 						}
 					},

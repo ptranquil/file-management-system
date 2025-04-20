@@ -214,8 +214,14 @@ export const checkFoldersByUserId = catchAsync(async (req: Request, res: Respons
 
 export const getAllFolderBelongsToUser = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const { userId } = req.params;
-    const folders = await folderModel.find({ userId }).select("_id");
-    const folderIds = folders.map(folder => folder._id);
-    return apiSuccess(200, "Folders fetched successfully", res, folderIds);
+
+    const folders = await folderModel.find({ userId }).select("_id path");
+
+    const formattedFolders = folders.map(folder => ({
+        _id: folder._id,
+        path: folder.path,
+    }));
+
+    return apiSuccess(200, "Folders fetched successfully", res, formattedFolders);
 });
   
