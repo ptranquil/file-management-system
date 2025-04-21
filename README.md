@@ -109,6 +109,7 @@ Make sure to set up the required environment variables for each service:
 | `DBURL` | mongodb://localhost:27017/filemanager-user-db |
 | `JWT_USER_SECRETKEY` | somesecretkey |
 | `SERVICE_PREFIX` | userservice/ |
+| `FRONTEND_URL` | http://localhost:5173/ |
 
 **Heirarchy Service:** 
 | Variable | Description with e.g. values |
@@ -120,6 +121,7 @@ Make sure to set up the required environment variables for each service:
 | `INTERNAL_SECRET` | abcdveryimpotantsecretvalue |
 | `VERSION_SERVICE_BASE_URL` | http://localhost:3002/versionservice/api/v1/documents (For Interservice communication) |
 | `SERVICE_PREFIX` | userservice/ |
+| `FRONTEND_URL` | http://localhost:5173/ |
 
 **Version Service:** 
 | Variable | Description with e.g. values |
@@ -131,6 +133,7 @@ Make sure to set up the required environment variables for each service:
 | `INTERNAL_SECRET` | abcdveryimpotantsecretvalue |
 | `VERSION_SERVICE_BASE_URL` | http://localhost:3001/heirarchyservice/api/v1/documents (For Interservice communication) |
 | `SERVICE_PREFIX` | versionservice/ |
+| `FRONTEND_URL` | http://localhost:5173/ |
 
 **Frontend:** 
 | Variable | Description |
